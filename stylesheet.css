@@ -1,0 +1,167 @@
+/*clearfix*/
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+/*@font-face {
+	font-family: 'OpenSansLight';
+	src: url(fonts/OpenSansLight.ttf);
+}*/
+
+/*リンク表示設定*/
+
+/*背景、フォント、サイズ、配置設定*/
+body{
+	background: #e1e1e1;
+    font-family: Verdana, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+    font-size: 100%;
+    color: #3a4c47;
+	width: 960px;
+    height: 100%;
+    margin: 0px auto;
+}
+
+a{
+	text-decoration: none;
+    color: #3a4c47;
+    transition: 0.2s;
+    &:hover{
+        color: #536d66;
+	    transition: 0.2s;
+    }
+}
+
+/*main部分の背景設定*/
+div.main{
+	background: #fdfdfd;
+	width: 100%;
+	height: 100%;
+}
+
+/*メニュー部分設定*/
+#logoimg {
+	height: 60px;
+}
+div.logo{
+	float: left;
+	padding: 14px;
+	padding-right: 540px;
+}
+div.menu{
+	float: left;
+	text-align: center;
+	padding: 14px;
+/*	padding-top: 76px;
+	padding-right: 20px*/
+}
+a.menua {
+	display: block;
+	font-size: 150%;
+	font-family: 'Open Sans', sans-serif;
+	background: #f1f1f1;
+	padding: 10px;
+	min-width: 100px;
+    transition: 0.2s;
+}
+a.menua:hover {
+	background: #f69e00;
+	color: #fff;
+	transition: 0.2s;
+}
+#current {
+	background: #f69e00;
+	color: #fff;
+}
+
+#cover {
+	width: 100%;
+}
+
+/*見出し設定*/
+h1{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	padding-left: 20px;
+}
+
+h2{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: normal;
+	padding-left: 40px;
+}
+/*ニュース部分表示設定*/
+li.news {
+	text-align: left;
+	display: block;
+	padding-left: 30px;
+    font-size: 100%;
+}
+li.newsimg {
+	display: block;
+	text-align: center;
+}
+a.morenews {
+	float: right;
+}
+
+/*コンテンツ表示枠設定*/
+div.js-masonry {
+	margin: 0px auto;
+	width: 100%;
+}
+div.item {
+/*	border: 1px solid #f69e00;*/
+	border-radius: 6px;
+	box-shadow: 0 0 4px gray;
+	background-color: #fdfdfd;
+	margin: 5px;
+	width: 309px;
+	min-height: 275px;
+}
+div.item:hover{
+	box-shadow: 0 0 10px gray;
+	transition: 0.2s;
+}
+img.image{
+	border-radius: 6px 6px 0 0;
+	width: 100%;
+}
+p.image, p.caption, p.captionw {
+/*	text-align: left;*/
+	margin: 0px;
+}
+p.caption {
+	font-size: 80%;
+	width: 100%;
+	/*height: 42px;*/
+}
+/*p.captionw {
+	font-size: 80%;
+	width: 526px;
+	height: 42px;
+}*/
+
+/*Content内タイムライン表示設定*/
+#twitter-box {
+	height: 560px;
+}
+
+/*フッター設定*/
+footer {
+	height: 100%;
+	padding-top: 100px;
+	text-align: center;
+}
+#copy:after {
+	content: "(c)2015-2018 hashikemu";
+}
+
+/*記事本文表示全般の表示設定*/
+p.article {
+	margin: 0px auto;
+	width: 840px;
+	text-decoration;
+
+
+}

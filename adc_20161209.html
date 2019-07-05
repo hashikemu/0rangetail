@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8">
+	<title>KnobCon前史(仮) - 0rangetail</title>
+	<meta name="author" content="hashikemu">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="images/icon.png">
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="stylesheet.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+	<!--<link rel="stylesheet" href="lightbox.min.css">-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('a[href^=#]').click(function(){
+			var speed = 400;
+			var href= $(this).attr("href");
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			var position = target.offset().top;
+			$("html, body").animate({scrollTop:position}, speed, "swing");
+			return false;
+		});
+	});
+	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-76528819-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
+	<!--イラストのリンク先を変更するスクリプト　公開時にコメントアウトを外す-->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a").each(function() { 
+				var replace = null;
+				var replace = $(this).attr('href').replace(/illusts/g,'http://www.geocities.jp/hsp84ken');
+				$(this).attr('href',replace);
+			});
+		});
+	</script>
+
+
+</head>
+
+
+
+<body>
+	<div class="main">
+		<header>
+			<div class="logo"><a href="index.html"><img id="logoimg" src="images/logo.png" alt="0rangetail"></a></div>
+			<!--id="current"を入れるとハイライトモードになる-->
+			<div style="clear: both;"></div>
+		</header>
+
+		<img id="cover" src="cover.png" alt="cover image">
+
+
+<h1>KnobCon前史(仮)</h1>
+
+<p class="article">
+この記事は<a href="http://www.adventar.org/calendars/1762">ぐらぽむ Advent Calendar</a> 9日目の記事です。
+</p>
+
+<h2>自己紹介</h2>
+<p class="article">
+どうも初めまして。はしけむ(<a href="https://twitter.com/kemuduino/">@kemuduino</a>)です。ぐらぽむとは同じ高校の別分野の同輩で、大学は別です。冗談やろｗｗ と思ってRTしたらほんとに始まってしまって、申し訳なくなったので参加しております。<br>
+<br>
+ぐらぽむとかかわりがあったのは、C90でサークル「豆腐屋」としてリリースしたノブ型コントローラー「KnobCon」のときでした。なので、この記事ではKnobConのことについて書こうと思います。<br>
+ちなみに、「豆腐屋」は高校の同級生で集まってできたpref.yokohama(横浜県とも呼ばれています(?))からできたサークルです。<br>
+<br>
+KnobCon前史と書きましたが、このページは<b>KnobConができる前にアイデアとして提案したハンドルコントローラのメモ</b>を編集したものです。これを提案したからこそKnobConのアイデアができたのかも？なので、アイデアどまりを供養する意味も含めて公開します。<br>
+最近だとMSから出たSurface Dialがありますが、あれもKnobConと類似するデバイスですね。<br>
+あと、KnobConはワシが育てた！とか言いたいわけでは無いのでご承知ください。<br>
+<br>
+<br>
+</p>
+
+<h2>そもそも</h2>
+<p class="article">
+・レースゲームなどで使用するハンドルコントローラーは高価。<br>
+・前々から自作できないかなと考えていた。<br>
+・試しに　「ハンドルコントローラ　自作」　で検索してみたが、想定していたものは全くヒットせず。<br>
+・「DIY steering controller」で検索すれば海外での作例は出るが、日本国内で自作している人はいない状況でした。<br>
+<br>
+<br>
+</p>
+
+<h2>思いついたきっかけ</h2>
+<p class="article">
+いつものようにTwitterを眺めていると、<br>
+</p>
+
+<blockquote class="twitter-tweet tw-align-center" data-lang="ja">
+	<p lang="ja" dir="ltr">追い越しもスマートに出来ますよ <a href="https://t.co/wXB8AjK6Ze">pic.twitter.com/wXB8AjK6Ze</a></p>&mdash; Chobi&#39;s Atelier (@chobi_luck) <a href="https://twitter.com/chobi_luck/status/741267785318207488">2016年6月10日</a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p class="article">
+マウスと回転椅子を組み合わせて、ハンドルコントローラができている(しかもマウスボタンでウインカーが出せる)ツイートを見つけ、このように簡単なセンサーでハンドルを作ることができれば安価にハンドルコントローラーが実現可能と考えました。<br>
+ちなみに、ETS2にはマウスでハンドル操作ができる機能が元からあるようです。<br>
+<br>
+<br>
+</p>
+
+<h2>きっかけのきっかけ</h2>
+<p class="article">
+ここで少し時間をさかのぼります…。<br>
+2015年の年末、C89で@sukukyonがサークル参加申込書を購入し、そのまま申し込んだのでC90サークル参加することになりました。応募時は自作キーボード(絵師向けのショートカットキーなど)を作る予定でした。<br>
+それからしばらくして、コミケの当落発表でサークル「豆腐屋」が当選してしまい、この時点でほわーんとキーボード作るのかな～？みたいな状態で、具体的な仕様が定まっていませんでした。そもそも本当にキーボードになるのかも微妙でしたし…。<br>
+これはどうしようと思って何か作れないか考えていたところ、上のツイートが流れてきたわけです。<br>
+加えて、国内では自作ハンドルコントローラーの前例がないこともあり、これだ！と思いました。<br>
+<br>
+<br>
+</p>
+
+<h2>需要について</h2>
+<p class="article">
+需要がないものを作っても意味がないので、まずは需要があるか考えました。<br>
+まず、コスト的な問題からFFB機能(フォースフィードバック機能、地面からの感触を再現するもの)の実装が不可能であると考えましたが、<br>
+　・GTA5、ETS2、NFSなどの、ハンドルコントローラを想定していないゲームソフト<br>
+　・またはハンコンが使用可能だがFFB機能を持っていないゲームソフト<br>
+で使用する目的では十分な性能を発揮できると考えられました。一方で<br>
+　・リアルな動きを売りにしているレースゲームではFFB機能がないため快適な体験が提供しづらい<br>
+　・Unity+Arduinoなどの方法でセンサー値をとれる場合はUnityのアセットなどで直接取るはず<br>
+などのデメリットも考えられました。ここから、<b>目的を絞れば需要として成立するのでは</b>ということになりました。<br>
+<br>
+<br>
+</p>
+
+<h2>ソフトウェア技術の調査</h2>
+<p class="article">
+簡単なセンサーの値をハンドルの角度として使うという基本的な部分は確定しましたが、ソフトウェア的にどう実現するのかわからなかったのでとりあえず調査。<br>
+<br>
+・<a href="http://shureneko.blogspot.jp/2015/12/ps3pc.html">PS3のコントローラーをPCで使う - シュレ猫のぶろぐ</a><br>
+ラッパーライブラリを使用してXinputコントローラに見せかけることで、PS3コントローラをPCで使用する方法がある。<br>
+<br>
+・<a href="http://tochiii.blog119.fc2.com/blog-entry-186.html">組込みエンジニアのブログ - スーパーファミコンのコントローラーをUSB化する最強の方法</a><br>
+・<a href="http://www.3rd-sri.com/report/saturn_v6f/saturn6f.html">復刻版サターンパッドUSB化基板Ver6F解説　科学調査レポート</a><br>
+SFC、サターンなどのパッドでは中身を専用基盤に換装することでUSB接続できるようにしているものが売っていた。この例では、専用のICが搭載されているように思えるが、どんな専用ICを使用すればいいのかわからないため、この手法そのままではできない。<br>
+<br>
+・<a href="http://www.zlittell.com/2015/07/fightstick/">[MSF] FightStick (TeensyLC XINPUT Controller) - Zack's Workbench</a><br>
+・<a href="http://www.instructables.com/id/Arduino-LeonardoMicro-as-Game-ControllerJoystick/">Arduino Leonardo/Micro as Game Controller/Joystick</a><br>
+・<a href="https://github.com/MHeironimus/ArduinoJoystickLibrary">GitHub - ArduinoJoystickLibrary</a><br>
+一番下はHIDデバイスとして使用できる機能を持ったArduino向けのライブラリです。これを使ったら一週間ぐらいで完成できそうと思うほどでした…。<br>
+<br>
+・<a href="http://dxlib.o.oo7.jp/cgi/patiobbs/patio.cgi?mode=past&no=808">ジョイスティックについて</a><br>
+・<a href="http://ossan-gamer.net/how-to-use-sterling-controller-with-gamepad/">【GTA5 PC】ハンコン、パッドを同時に使用する方法 - おっさんゲーマーどっとねっと</a><br>
+ハンドルの操作はゲームパッドでどの操作に当たるのかも調べました。DXライブラリにおけるハンドルコントローラの扱いは、特別なことをしなくてもパッドの軸として認識されるようです。また、下の記事では、Xinput入力に変換するソフトを使用して、ハンドルコントローラーのアクセル・ブレーキをLRトリガー軸に、ハンドルをスティックX軸に割り当てています。この割り当ては実際のハンコンでも同じなのではないかと思いました。<br>
+<br>
+<br>
+この調査から、ソフトウェア側解決手段には<br>
+案1：Arduino互換機で信号を受け取り、その値を一定範囲に丸めてPCに投げ、これをラッパーライブラリ側でXinput入力に変換する。<br>
+案2：入力値を専用ICで受け取り、USB接続でPCに渡す(USB化基盤と同じ方法)　IC調達をどうするかが問題<br>
+案3：ArduinoにXinput化ライブラリを焼いて、センサから受け取った信号をPC側に渡す<br>
+のいずれかが使えると考えました。結論から言えば<b>案3の圧勝</b>です。<br>
+<br>
+<br>
+</p>
+
+<h2>ハードウェアについて</h2>
+<p class="article">
+さて、ハードウェア側についてですが、この時点では未考察でした…。ある程度調べていたのはこの程度でした。<br>
+　・市販製品の筐体は、プラスチック、金属などを使用しているっぽい。<br>
+　・自動車のインパネを使用した改造型ハンコンの動画では、木材を増設部分の固定に使用していた<br>
+　・センサ入力はポテンショメータ、小型ボリューム、加速度センサ、ロータリーエンコーダなどが考えられる<br>
+　・センサ側を取り換えればハンコン以外の様々なコントローラに対応できる？<br>
+<br>
+<br>
+</p>
+
+<h2>自作ハンコンの最終的な仕様</h2>
+<p class="article">
+いろいろと調査してみた結果、実現できそうな仕様はこのようになりました。<br>
+・ETS2向けのハンドルコントローラー<br>　　　　　　-　目的を限定することで要求仕様を下げる<br><br>
+・大径のハンドルをギアを介してノンクリックのロータリーエンコーダに接続<br>　　　　　　-　ギアで回転を増幅して、ロータリーエンコーダの分解能を細かくできる<br><br>
+・ハンドルはトラックを想定して水平に近い角度にする<br>　　　　　　-　ハンドル重量で筐体が変形することを回避<br><br>
+・ハンドルを戻す力はトーションばねかラック先に接続したばねで与える<br>　　　　　　-　FFB無いかわり<br><br>
+・透明アクリル板を積層した筐体　長いボルトで上下を固定<br>　　　　　　-　ブラシノブから明らかに影響を受けています<br><br>
+・ハンドルは木と金属を組み合わせた複数ピース構造<br>　　　　　　-　一体成型は難しい上に会場でかさばる<br><br>
+・回路側はarduino pro miniに接続<br>　　　　　　-　aitendoで安価に入手可能<br><br>
+・ソフトウェアはxinputライブラリを入れる<br>　　　　　　-　既存ライブラリによって開発時間を短縮<br><br>
+<br>
+<br>
+</p>
+
+<h2>その後</h2>
+<p class="article">
+この案を豆腐屋メンバーの会議で見せたところ、ハンコンは大きくてかさばる、それにコストがかかりそうということで、ノブコントローラが出ました。それがKnobConの本当の始まりでした。<br>
+ノブコントローラーの案はakira_techの発案で、powermateというノブコントローラーから影響を受けているようです。
+<br>
+<br>
+</p>
+
+<h2>最後に</h2>
+<p class="article">
+　自分はなにかモノを作るとき、ある程度<b>細かく調査して実現可能かどうかを見極めてから</b>製作に入るようにしています。こうすれば開始してから解決困難な問題にぶつかるリスクは下げられるのではと思っています。<br>
+akira_techやgurapomuがいろいろ大変だった話とか、基盤の発注した話とか、別の部分はだれか書いてくれるのではと淡く期待しています。他にも、コミケで比村乳業を4周した話はまた別の機会に。<br>
+ここまで読んでいただきありがとうございました。<br>
+明日は、KnobConではファームを担当していた@sukukyonさんが、@alucky0707さんについて書くようです。どういうことなの…。<br>
+</p>
+
+		<footer>
+			<p id="copy"></p>
+		</footer>
+	</div>
+
+	<script src="lightbox-plus-jquery.min.js"></script>
+
+</body>
+</html>
