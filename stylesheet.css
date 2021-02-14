@@ -161,7 +161,5 @@ footer {
 p.article {
 	margin: 0px auto;
 	width: 840px;
-	text-decoration;
-
-
+	/* text-decoration; */
 }
