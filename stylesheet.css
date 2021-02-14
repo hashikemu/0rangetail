@@ -117,7 +117,7 @@ div.item {
 	background-color: #fdfdfd;
 	margin: 5px;
 	width: 309px;
-	min-height: 275px;
+	min-height: 280px;
 }
 div.item:hover{
 	box-shadow: 0 0 10px gray;
@@ -144,7 +144,7 @@ p.caption {
 
 /*Content内タイムライン表示設定*/
 #twitter-box {
-	height: 560px;
+	height: 570px;
 }
 
 /*フッター設定*/
@@ -154,7 +154,7 @@ footer {
 	text-align: center;
 }
 #copy:after {
-	content: "(c)2015-2018 hashikemu";
+	content: "(c)2015-2021 hashikemu";
 }
 
 /*記事本文表示全般の表示設定*/
